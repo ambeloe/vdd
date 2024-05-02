@@ -1,4 +1,4 @@
-module vdd
+module github.com/ambeloe/vdd
 
 go 1.21.8
 
