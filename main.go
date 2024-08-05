@@ -132,9 +132,15 @@ type UefiVar struct {
 	Name       string `json:"name"`
 	VendorGuid string `json:"vendor_guid"`
 
-	Volatile       bool `json:"volatile"`
-	BootserivceVar bool `json:"bootserivce_var"`
-	RuntimeVar     bool `json:"runtime_var"`
+	Attributes struct {
+		NonVolatile                       bool `json:"non_volatile"`
+		BootserviceAccess                 bool `json:"bootservice_access"`
+		RuntimeAccess                     bool `json:"runtime_access"`
+		HardwareErrorRecord               bool `json:"hardware_error_record"`
+		AuthenticatedWriteAccess          bool `json:"authenticated_write_access"`
+		TimeBasedAuthenticatedWriteAccess bool `json:"time_based_authenticated_write_access"`
+		EnhancedAuthenticatedAccess       bool `json:"enhanced_authenticated_access"`
+	} `json:"attributes"`
 
 	DataLen int    `json:"data_len"`
 	Data    []byte `json:"data"`
